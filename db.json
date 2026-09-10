@@ -1,0 +1,117 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Omar",
+      "email": "omar@example.com",
+      "password": "123456",
+      "role": "user"
+    },
+    {
+      "id": "2",
+      "name": "Admin",
+      "email": "admin@example.com",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "id": "3",
+      "name": "Carlos",
+      "email": "carlos@example.com",
+      "password": "123456",
+      "role": "user"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Laptops"
+    },
+    {
+      "id": "2",
+      "name": "Teclados"
+    },
+    {
+      "id": "3",
+      "name": "Mouse"
+    },
+    {
+      "id": "4",
+      "name": "Monitores"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "title": "MacBook Air M3",
+      "description": "Laptop ligera y potente para desarrollo y trabajo diario.",
+      "price": 1199.99,
+      "category": "Laptops",
+      "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+      "rating": 4.9
+    },
+    {
+      "id": "2",
+      "title": "ASUS ROG Strix",
+      "description": "Laptop gaming de alto rendimiento para juegos y desarrollo.",
+      "price": 1499.99,
+      "category": "Laptops",
+      "image": "https://images.unsplash.com/photo-1603302576837-37561b2e2302",
+      "rating": 4.8
+    },
+    {
+      "id": "3",
+      "title": "Keychron K2",
+      "description": "Teclado mecánico compacto ideal para programadores.",
+      "price": 89.99,
+      "category": "Teclados",
+      "image": "https://images.unsplash.com/photo-1587829741301-dc798b83add3",
+      "rating": 4.7
+    },
+    {
+      "id": "4",
+      "title": "Logitech G Pro X",
+      "description": "Mouse gaming preciso y ligero.",
+      "price": 79.99,
+      "category": "Mouse",
+      "image": "https://images.unsplash.com/photo-1527814050087-3793815479db",
+      "rating": 4.6
+    },
+    {
+      "id": "5",
+      "title": "Razer DeathAdder V3",
+      "description": "Mouse ergonómico diseñado para largas sesiones.",
+      "price": 69.99,
+      "category": "Mouse",
+      "image": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7",
+      "rating": 4.5
+    },
+    {
+      "id": "6",
+      "title": "LG UltraGear 27",
+      "description": "Monitor gaming de 27 pulgadas con alta frecuencia de actualización.",
+      "price": 299.99,
+      "category": "Monitores",
+      "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf",
+      "rating": 4.8
+    },
+    {
+      "id": "7",
+      "title": "Samsung Odyssey G5",
+      "description": "Monitor curvo para gaming y productividad.",
+      "price": 349.99,
+      "category": "Monitores",
+      "image": "https://images.unsplash.com/photo-1585792180666-f7347c490ee2",
+      "rating": 4.7
+    },
+    {
+      "id": "8",
+      "title": "Logitech MX Keys",
+      "description": "Teclado inalámbrico cómodo para productividad y programación.",
+      "price": 99.99,
+      "category": "Teclados",
+      "image": "https://images.unsplash.com/photo-1595225476474-87563907a212",
+      "rating": 4.6
+    }
+  ]
+}
