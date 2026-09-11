@@ -1,10 +1,53 @@
+'use client'
+
 import { get } from "@/services/api"
+import type { User } from "@/interfaces/interfaces"
+import { useState, useEffect } from "react"
+import { redirect } from "next/navigation"
 
 export default function LoginPage() {
+  const [users, setUsers] = useState<User[]>([])
+
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  function getUsers() {
+    return get<User[]>('/users')
+  }
+
+  useEffect(() => {
+    getUsers().then((data) => {
+      setUsers(data)
+    })
+  }, [])
+
+  function handleEmail(event: React.ChangeEvent<HTMLInputElement>) {
+    setEmail(event.target.value)
+  }
+
+  function handlePassword(event: React.ChangeEvent<HTMLInputElement>) {
+    setPassword(event.target.value)
+  }
+
+  async function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
+    event.preventDefault()
+    login(email, password)
+  }
 
 
+  function login(email: string, password: string) {
+    const login = users.find((user) => email === user.email && password === user.password)
 
+    if (login) {
+      localStorage.setItem('User', JSON.stringify(login))
+      redirect('/')
+        
 
+    } else {
+      alert('Credentials incorrects!')
+    }
+  }
+  
 
   return (
     <main className="min-h-[calc(100vh-73px)] bg-zinc-950 px-6 py-16 text-zinc-100">
@@ -101,7 +144,10 @@ export default function LoginPage() {
 
 
             {/* FORM */}
-            <form className="space-y-5">
+            <form
+              className="space-y-5"
+              onSubmit={handleSubmit}
+            >
 
               {/* EMAIL */}
               <div>
@@ -117,6 +163,9 @@ export default function LoginPage() {
                   id="email"
                   type="email"
                   placeholder="you@example.com"
+                  value={email}
+                  required
+                  onChange={handleEmail}
                   className="w-full rounded-lg border border-zinc-700 bg-zinc-950 px-4 py-3 text-sm text-zinc-100 outline-none transition placeholder:text-zinc-600 focus:border-green-400"
                 />
 
@@ -148,6 +197,9 @@ export default function LoginPage() {
                   id="password"
                   type="password"
                   placeholder="••••••••"
+                  required
+                  value={password}
+                  onChange={handlePassword}
                   className="w-full rounded-lg border border-zinc-700 bg-zinc-950 px-4 py-3 text-sm text-zinc-100 outline-none transition placeholder:text-zinc-600 focus:border-green-400"
                 />
 
@@ -157,7 +209,7 @@ export default function LoginPage() {
               {/* LOGIN BUTTON */}
               <button
                 type="submit"
-                className="w-full rounded-lg bg-green-400 px-4 py-3 font-semibold text-zinc-950 transition hover:bg-green-300"
+                className="w-full rounded-lg bg-green-400 px-4 py-3 font-semibold text-zinc-950 transition hover:bg-green-300 cursor-pointer"
               >
                 Sign in →
               </button>
@@ -188,5 +240,8 @@ export default function LoginPage() {
       </div>
 
     </main>
+
   )
+
 }
+
